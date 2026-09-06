@@ -1,0 +1,38 @@
+@font-face {
+  font-family: "WinSoft Pro";
+  src: url("WinSoftPro-Medium.woff2") format("woff2"),
+    url("WinSoftPro-Medium.woff") format("woff"),
+    url("WinSoftPro-Medium.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Arial";
+  src: url("Arial-Mdm.woff2") format("woff2"),
+    url("Arial-Mdm.woff") format("woff"),
+    url("Arial-Mdm.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Arial";
+  src: url("ArialMT.woff2") format("woff2"), url("ArialMT.woff") format("woff"),
+    url("ArialMT.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Arial";
+  src: url("Arial-BoldMT.woff2") format("woff2"),
+    url("Arial-BoldMT.woff") format("woff"),
+    url("Arial-BoldMT.ttf") format("truetype");
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}

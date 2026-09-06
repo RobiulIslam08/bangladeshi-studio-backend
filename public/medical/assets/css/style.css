@@ -1,0 +1,540 @@
+/*--------------------------------------------------------------
+# Variable
+--------------------------------------------------------------*/
+:root {
+  --primary-font: "Arial";
+  --secondary-font: "WinSoft Pro";
+  --primary-color: #000000;
+  --secondary-color: #ffffff;
+  --text-color1: #002a84;
+  --text-color2: #e5313a;
+}
+
+@page {
+  size: A4;
+  margin: 0px;
+  padding: 0px;
+}
+
+html {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  width: 210mm;
+  height: 297mm;
+  margin: 0 auto;
+  padding: 40px 0px;
+  font-family: var(--primary-font);
+  font-size: 13px;
+  color: var(--primary-color);
+  font-weight: 500;
+  line-height: 1.25;
+  background-color: var(--secondary-color);
+}
+
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+a {
+  color: var(--primary-color);
+  transition: all 500ms ease;
+}
+
+a,
+a:hover,
+a:focus,
+a:visited {
+  text-decoration: none;
+}
+
+::placeholder {
+  color: inherit;
+  opacity: 1;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--secondary-font);
+  color: var(--primary-color);
+  font-weight: 500;
+}
+
+.mb-8px {
+  margin-bottom: 8px;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.capitalize {
+  text-transform: capitalize !important;
+}
+
+.lowercase {
+  text-transform: lowercase !important;
+}
+
+.title {
+  display: inline-block;
+  position: relative;
+  line-height: 1;
+}
+
+.title::after {
+  content: "";
+  width: 100%;
+  height: 1px;
+  position: absolute;
+  left: 0px;
+  bottom: 7px;
+  background-color: var(--primary-color);
+}
+
+.page-wrapper {
+  width: 100%;
+  max-width: 210mm;
+  /* width: 794px; */
+  /* A4 width in pixels */
+  /* height: 1123px; */
+  /* A4 height in pixels */
+  /* min-height: 297mm; */
+  position: relative;
+  padding: 20px 113.5px 10px;
+  margin: 0 auto;
+  overflow: hidden;
+  box-shadow: rgba(17, 17, 26, 0.05) 0px 1px 0px,
+    rgba(17, 17, 26, 0.1) 0px 0px 8px;
+}
+
+.page-wrapper__content {
+  position: relative;
+  z-index: 1;
+}
+
+.page-wrapper__bg {
+  width: calc(100% + 143.5px);
+  height: calc(100% - 200px);
+  position: absolute;
+  top: 96px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-position: top center;
+}
+
+.page-wrapper__inner {
+  position: relative;
+  z-index: 2;
+}
+
+.page-header__logo {
+  text-align: center;
+}
+
+.page-header__logo img {
+  max-width: 100%;
+  height: auto;
+  image-rendering: -moz-crisp-edges;
+  image-rendering: -o-crisp-edges;
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
+  -ms-interpolation-mode: nearest-neighbor;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -ms-transform: translateZ(0);
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+}
+
+.medical-info__top {
+  display: grid;
+  grid-gap: 33px;
+  align-items: center;
+  justify-content: space-between;
+  grid-template-columns: auto 66px;
+  padding: 0px 10px 0px 15px;
+  margin: 45px 0px 10px;
+}
+
+.medical-info__top__title {
+  font-family: var(--secondary-font);
+  font-size: 27px;
+  font-weight: 500;
+  color: var(--primary-color);
+  text-transform: uppercase;
+}
+
+.medical-info__qr {
+  max-width: 100%;
+  height: auto;
+}
+
+.section-title {
+  margin-bottom: 2px;
+  font-family: var(--secondary-font);
+  font-size: 20px;
+  color: var(--primary-color);
+  font-weight: 500;
+  text-transform: uppercase;
+}
+
+.section-title::after {
+  bottom: 4px;
+}
+
+.info-title,
+.info-box {
+  font-family: var(--primary-font);
+  font-size: 13px;
+  line-height: 1;
+  font-weight: 400;
+  color: var(--primary-color);
+  text-transform: uppercase;
+}
+
+.info-title--sm,
+.info-box--sm {
+  font-size: 11.6px;
+}
+
+.info-title--double {
+  display: inline-flex;
+  gap: 20px;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.info-box {
+  height: 20px;
+  padding: 0px 2px;
+  line-height: 20px;
+  border: 1px solid var(--primary-color);
+}
+
+.grid {
+  display: grid;
+  grid-gap: 4px;
+}
+
+.medical-info__row-1 {
+  margin-bottom: 9px;
+  grid-template-columns: 348px auto;
+}
+
+.medical-info__row-2 {
+  grid-template-columns: 152px 192px auto;
+}
+
+.medical-info__item-1 {
+  grid-template-columns: auto 291px;
+}
+
+.medical-info__item-2 {
+  grid-template-columns: auto 158px;
+}
+
+.medical-info__item-3 {
+  grid-template-columns: auto 95px;
+}
+
+.medical-info__item-4 {
+  grid-template-columns: auto 96px;
+}
+
+.medical-info__item-5 {
+  grid-template-columns: auto 84px;
+}
+
+.personal-info__row-1 {
+  margin-bottom: 2px;
+  grid-template-columns: 102px auto;
+}
+
+.personal-info__row-2 {
+  margin-bottom: 2px;
+  grid-template-columns: 212px 242px auto;
+}
+
+.personal-info__row-3 {
+  grid-template-columns: 318px auto;
+}
+
+.personal-info__item-1 {
+  grid-template-columns: auto 106px;
+}
+
+.personal-info__item-2 {
+  grid-template-columns: auto 137px;
+}
+
+.personal-info__item-3 {
+  grid-template-columns: auto 62px;
+}
+
+.personal-info__item-4 {
+  grid-template-columns: auto 106px;
+}
+
+.personal-info__item-5 {
+  grid-template-columns: auto 108px;
+}
+
+.employment-info__row-1 {
+  margin-bottom: 2px;
+  grid-template-columns: auto 377px;
+}
+
+.employment-info__row-2 {
+  grid-template-columns: 382px auto;
+}
+
+.employment-info__item-1 {
+  grid-template-columns: auto 192px;
+}
+
+.employment-info__item-2 {
+  grid-template-columns: auto 106px;
+}
+
+.examination-info__row-1 {
+  grid-template-columns: 246px 194px;
+}
+
+.examination-info__row-2 {
+  margin-top: 2px;
+  grid-template-columns: 246px 194px auto;
+}
+
+.examination-info__row-3 {
+  margin-top: 2px;
+  grid-template-columns: auto 406px;
+}
+
+.examination-info__row-4 {
+  margin-top: 10px;
+  padding-bottom: 3px;
+  grid-template-columns: 178px auto;
+}
+
+.examination-info__row-5 {
+  margin-top: 2px;
+  grid-template-columns: 268px auto;
+}
+
+.examination-info__row-5--5 {
+  margin: 44px 0px 21px;
+}
+
+.examination-info__row-6 {
+  margin-top: 2px;
+  grid-template-columns: auto 299px;
+}
+
+.examination-info__item-1 {
+  grid-template-columns: auto 85px;
+}
+
+.examination-info__item-2 {
+  grid-template-columns: auto 118px;
+}
+
+.examination-info__item-3 {
+  grid-template-columns: auto 85px;
+}
+
+.examination-info__item-4 {
+  grid-template-columns: auto 118px;
+}
+
+.examination-info__item-5 {
+  grid-template-columns: auto 65px;
+}
+
+.examination-info__item-6 {
+  grid-template-columns: auto 124px;
+}
+
+.examination-info__item-7 {
+  grid-template-columns: auto 219px;
+}
+
+.medical-note {
+  margin: 22px 0px 6px;
+  position: relative;
+  font-family: var(--primary-font);
+  font-size: 12px;
+  text-align: center;
+  line-height: 1.25;
+  font-weight: 700;
+  color: var(--primary-color);
+  text-transform: uppercase;
+
+  span {
+    display: inline-block;
+    margin-left: -27px;
+  }
+}
+
+.medical-note::after {
+  content: "";
+  width: calc(100% + 27px);
+  height: calc(100% + 1px);
+  position: absolute;
+  top: -1px;
+  left: -27px;
+  border: 1px solid var(--primary-color);
+}
+
+.medical-doctor {
+  width: calc(100% + 55px);
+  margin-left: -27.5px;
+  position: relative;
+  display: grid;
+  grid-gap: 20px;
+  align-items: center;
+  grid-template-columns: 186px 150px auto;
+}
+
+.medical-doctor::after {
+  content: "";
+  width: calc(100% + 93px);
+  height: 2px;
+  position: absolute;
+  left: 50%;
+  bottom: -3px;
+  transform: translateX(-50%);
+  background-color: var(--primary-color);
+}
+
+.medical-doctor__item:last-child .medical-doctor__name,
+.medical-doctor__item:last-child .medical-doctor__designation {
+  padding-right: 27px;
+}
+
+.medical-doctor__name {
+  margin-bottom: 2px;
+  font-family: var(--secondary-font);
+  font-size: 18px;
+  line-height: 1;
+  font-weight: 500;
+  color: var(--primary-color);
+  text-transform: uppercase;
+}
+
+.medical-doctor__signature,
+.medical-doctor__logo {
+  max-width: 100%;
+  height: auto;
+}
+
+.medical-doctor__signature--2 {
+  margin-top: 6px;
+}
+
+.medical-footer {
+  width: calc(100% + 149px);
+  margin: 7px 0px 0px -74.5px;
+  text-align: center;
+}
+
+.medical-footer__text + .medical-footer__text {
+  margin-top: 3px;
+}
+
+.medical-footer__text {
+  font-family: var(--primary-font);
+  font-size: 14.6px;
+  line-height: 1;
+  font-weight: 500;
+  color: var(--text-color1);
+  text-transform: capitalize;
+}
+
+.medical-footer__text--arabic {
+  font-weight: 700;
+}
+
+.medical-footer__text--info {
+  color: var(--text-color2);
+}
+
+.medical-footer__text--info a {
+  color: inherit;
+}
+
+.button-box {
+  padding: 40px;
+  text-align: center;
+}
+
+.button-box__btn {
+  border: 0;
+  position: relative;
+  padding: 12.5px 30px 9.5px;
+  z-index: 1;
+  cursor: pointer;
+  font-family: var(--primary-font);
+  font-size: 14px;
+  color: var(--secondary-color);
+  font-weight: 500;
+  line-height: 1.25;
+  text-transform: uppercase;
+  overflow: hidden;
+  background-color: var(--text-color2);
+  transition: all 500ms ease;
+}
+
+.button-box__btn::after {
+  content: "";
+  width: 0%;
+  height: 100%;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  z-index: -1;
+  background-color: var(--text-color1);
+  transition: all 500ms ease;
+}
+
+.button-box__btn:hover::after {
+  width: 100%;
+  left: 0px;
+}
+
+/*--------------------------------------------------------------
+# Print Style
+--------------------------------------------------------------*/
+@media print {
+  html,
+  body {
+    padding: 0px;
+    margin: 0px;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  .page-wrapper {
+    box-shadow: none;
+    /* padding: 0px; */
+    /* page-break-after: always; */
+  }
+
+  .button-box {
+    display: none;
+  }
+}

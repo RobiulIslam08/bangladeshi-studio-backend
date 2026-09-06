@@ -1,0 +1,21 @@
+/*--------------------------------------------------------------
+# Variable
+--------------------------------------------------------------*/
+:root {
+    --primary-font: "Cairo", sans-serif;
+}
+
+
+body {
+    direction: rtl;
+}
+
+.page-header__info__title {
+    margin-right: 0px;
+    margin-left: 15px;
+}
+
+.person-information__title {
+    margin-right: 0px;
+    margin-left: 15px;
+}
