@@ -11,6 +11,7 @@ use App\Http\Controllers\VisaController;
 use App\Http\Controllers\documentController;
 use App\Http\Controllers\MedicalController;
 use App\Http\Controllers\SearchMuqeemController;
+use App\Http\Controllers\AjeerPermitController;
 
 Route::get('/ping', function () {
     return response()->json([
@@ -69,6 +70,9 @@ Route::post('/documents/upload', [DocumentController::class, 'storeDocuments']);
 
  Route::post('/addBalance', [UserRegisterController::class, 'addBalance']);
 
+Route::get('/ajeerPermits', [AjeerPermitController::class, 'index']);
+Route::get('/ajeerPermits/{id}', [AjeerPermitController::class, 'show']);
+Route::post('/ajeerPermits', [AjeerPermitController::class, 'store']);
 
 //  Auth
 
