@@ -8,6 +8,8 @@ use App\Models\Custom_userModel;
 use App\Models\DocumentInfoModel;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Schema;
+use Illuminate\Database\Schema\Blueprint;
 use Barryvdh\DomPDF\Facade\Pdf;
 
 
@@ -166,8 +168,8 @@ class MedicalController extends Controller
     
     
     public function store(Request $request){
-       
-        
+        $this->ensureDesignColumnExists();
+
         $data = $request->validate([
             'to' => 'nullable|string|max:255',
             'report_date' => 'nullable|string|max:255',
@@ -339,6 +341,17 @@ return response()->json([
             'status' => 'success',
             'next_id' => MedicalReport::nextFileNo(),
         ]);
+    }
+
+    private function ensureDesignColumnExists(): void
+    {
+        if (Schema::hasColumn('medical_reports', 'design')) {
+            return;
+        }
+
+        Schema::table('medical_reports', function (Blueprint $table) {
+            $table->string('design', 20)->default('old')->after('date_of_birth');
+        });
     }
 
 }

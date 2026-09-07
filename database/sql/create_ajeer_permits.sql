@@ -1,0 +1,20 @@
+CREATE TABLE IF NOT EXISTS `ajeer_permits` (
+  `id` bigint unsigned NOT NULL AUTO_INCREMENT,
+  `qr_number` varchar(255) DEFAULT NULL,
+  `worker_name` varchar(255) NOT NULL,
+  `iqama_number` varchar(255) NOT NULL,
+  `occupation` varchar(255) DEFAULT NULL,
+  `nationality` varchar(255) DEFAULT NULL,
+  `provider_name` varchar(255) DEFAULT NULL,
+  `provider_reg_no` varchar(255) DEFAULT NULL,
+  `beneficiary_name` varchar(255) DEFAULT NULL,
+  `beneficiary_reg_no` varchar(255) DEFAULT NULL,
+  `contract_description` text DEFAULT NULL,
+  `permit_start_date` date DEFAULT NULL,
+  `permit_end_date` date DEFAULT NULL,
+  `work_location` varchar(500) DEFAULT NULL,
+  `user_id` bigint unsigned DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;

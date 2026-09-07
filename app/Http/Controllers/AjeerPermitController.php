@@ -3,12 +3,16 @@
 namespace App\Http\Controllers;
 
 use App\Models\AjeerPermit;
+use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Schema;
 
 class AjeerPermitController extends Controller
 {
     public function index(Request $request)
     {
+        $this->ensureTableExists();
+
         $permits = AjeerPermit::query()
             ->latest('id')
             ->paginate((int) $request->get('per_page', 20));
@@ -21,6 +25,8 @@ class AjeerPermitController extends Controller
 
     public function show($id)
     {
+        $this->ensureTableExists();
+
         $permit = AjeerPermit::find($id);
 
         if (!$permit) {
@@ -38,6 +44,8 @@ class AjeerPermitController extends Controller
 
     public function store(Request $request)
     {
+        $this->ensureTableExists();
+
         $input = $request->all();
 
         foreach (['permit_start_date', 'permit_end_date', 'user_id'] as $field) {
@@ -71,5 +79,31 @@ class AjeerPermitController extends Controller
             'id'      => $permit->id,
             'data'    => $permit,
         ], 201);
+    }
+
+    private function ensureTableExists(): void
+    {
+        if (Schema::hasTable('ajeer_permits')) {
+            return;
+        }
+
+        Schema::create('ajeer_permits', function (Blueprint $table) {
+            $table->id();
+            $table->string('qr_number')->nullable();
+            $table->string('worker_name');
+            $table->string('iqama_number');
+            $table->string('occupation')->nullable();
+            $table->string('nationality')->nullable();
+            $table->string('provider_name')->nullable();
+            $table->string('provider_reg_no')->nullable();
+            $table->string('beneficiary_name')->nullable();
+            $table->string('beneficiary_reg_no')->nullable();
+            $table->text('contract_description')->nullable();
+            $table->date('permit_start_date')->nullable();
+            $table->date('permit_end_date')->nullable();
+            $table->string('work_location', 500)->nullable();
+            $table->unsignedBigInteger('user_id')->nullable();
+            $table->timestamps();
+        });
     }
 }
